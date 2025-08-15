@@ -44,7 +44,7 @@
 
             content: '';
             right: 0;
-            background: url(/icons/arrow-top-right__black.svg) center no-repeat var(--color-accent);
+            background: url(../icons/arrow-top-right__black.svg) center no-repeat var(--color-accent); // need to add "." for right road
             border-radius: 50%;
         }
     }
