@@ -60,7 +60,7 @@
             grid-area: resources-preview;
             padding-left: rem(80);
             padding-bottom: rem(80);
-            background: url(/images/resources-preview/Container.png) 0 0/cover no-repeat;
+            background: url(../images/resources-preview/Container.png) 0 0/cover no-repeat; //road for .
 
             @include laptop {
                 padding-left: rem(50);
