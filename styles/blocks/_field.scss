@@ -1,0 +1,81 @@
+@use '../helpers/' as *;
+
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: rem(16);
+    font-size: rem(18);
+    color: var(--color-light);
+
+    @include laptop {
+        row-gap: rem(12);
+        font-size: rem(16);
+    }
+
+    &__control {
+        width: 100%;
+        height: rem(67);
+        padding-inline: rem(20);
+        color: var(--color-light);
+        background-color: var(--color-dark-10);
+        border: var(--border);
+        border-radius: rem(8);
+
+        @include hover {
+            box-shadow: 0 0 0 5px #191919;
+            background: #1a1a1a;
+            transition-duration: var(--transition-duration);
+            border-color: var(--color-accent);
+        }
+
+        @include laptop {
+            height: rem(53);
+            padding-inline: rem(16);
+            border-radius: rem(6);
+        }
+
+        &::placeholder {
+            color: var(--color-dark-40);
+        }
+    }
+
+    &__required-star {
+        color: var(--color-red);
+    }
+
+    &__body {
+        display: flex;
+        column-gap: rem(16);
+        width: 100%;
+        @include laptop {
+            column-gap: rem(12);
+        }
+    }
+
+    textarea.field__control {
+        resize: vertical;
+        min-height: rem(163);
+        padding-block: rem(20);
+    // &::-webkit-scrollbar {
+    //     width: 12px;
+    // }
+    // &::-webkit-scrollbar-track {
+    //     background: #222; /* фон дорожки */
+    // }
+    // &::-webkit-scrollbar-thumb {
+    //     background: #555; /* цвет ползунка */
+    //     border-radius: 4px;
+    // }
+    // &::-webkit-scrollbar-thumb:hover {
+    //     background: #777; /* при наведении */
+    // }
+
+        @include laptop {
+            padding-block: rem(16);
+        }
+        @include mobile {
+            min-height: rem(127);
+        }
+    }
+}

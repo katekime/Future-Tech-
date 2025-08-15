@@ -1,0 +1,75 @@
+@use '../helpers/' as *;
+
+.accordion {
+    &__details {
+        &[open] {
+            .accordion__title {
+                &::before,
+                &::after {
+                    background-color: var(--color-light);;
+                }
+                &::after {
+                    rotate: 0deg;
+                }
+            }
+
+            & + .accordion__content {
+                grid-template-rows: 1fr;
+            }
+        }
+    }
+    &__summary {
+        list-style: none;
+        color: var(--color-light);
+        
+        @include hover {
+            color: var(--color-accent);
+        }
+        
+        &::webkit-details-marker {
+            display: none;
+        }
+    }
+    
+    &__title {
+        position: relative;
+        padding-right: rem(50); // безопасный паддинг чтобы не слиплись с минусом или плюсом
+        color: inherit;
+        transition-duration: var(--transition-duration);
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            width: rem(16);
+            height: rem(2);
+            right: 0;
+            top: 50%;
+            translate: 0 -50%;
+            background-color: var(--color-accent);
+            border-radius: rem(1);
+            transition-duration: var(--transition-duration);
+        }
+
+        &::after {
+            rotate: 90deg;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition-duration: 0.3s;
+
+        &-inner {
+            overflow: hidden;
+        }
+        &-body {
+            --offsetTop: #{fluid(24, 16)};
+
+            margin-top: var(--offsetTop);
+            padding-top: var(--offsetTop);
+            border-top: var(--border);
+        }
+    }
+}

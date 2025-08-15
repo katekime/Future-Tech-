@@ -1,0 +1,94 @@
+@use '../helpers/' as *;
+
+.tabs {
+    &__header {
+        border-bottom: var(--border);
+
+        @include tablet {
+            overflow-x: auto;
+        }
+    }
+
+    &__buttons {
+        padding-block: rem(50);
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: rem(20);
+
+        @include laptop {
+            padding-block: rem(40);
+            column-gap: rem(14);
+        }
+        @include mobile {
+            padding-block: rem(20);
+        }
+        @include tablet {
+            width: max-content;
+        }
+
+
+        &--compact {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block: 0;
+            column-gap: rem(10);
+        }
+    }
+
+    &__button {
+        padding: rem(30) rem(11);
+        border: var(--border);
+        border-radius: rem(8);
+        background-color: var(--color-dark);
+        color: var(--color-gray-60);
+        font-size: rem(18);
+
+        &.is-active {
+            color: var(--color-light);
+            background-color: var(--color-dark-10);
+            font-weight: 500;
+            pointer-events: none;
+        }
+
+        @include hover {
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        @include laptop {
+            padding: rem(24) rem(11);
+            font-size: rem(14);
+        }
+        @include mobile {
+            padding: rem(18) rem(11);
+        }
+
+        &--compact {
+            padding: rem(18) rem(38);
+
+            &.is-active {
+                color: var(--color-light);
+                font-weight: 400;
+                font-size: rem(18);
+                background-color: var(--color-dark-15);
+
+                @include mobile {
+                    font-size: rem(14);
+                }
+            }
+
+            @include laptop {
+                padding: rem(14) rem(24);
+            }
+            @include mobile {
+                padding: rem(14) rem(13);
+            }
+        }
+    }
+
+    &__content {
+        &:not(.is-active) {
+            display: none;
+        }
+    }
+}

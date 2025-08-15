@@ -1,0 +1,130 @@
+@use '../helpers/' as *;
+
+.bordered-grid {
+    --itemPaddingY: #{rem(80)};
+    --columns: 1;
+    
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    
+    @include laptop {
+        --itemPaddingY:#{rem(60)};
+    }
+    @include mobile {
+        --itemPaddingY:#{rem(40)};
+    }
+    
+    
+    &--2cols {
+        --columns: 2;
+        --itemPaddingX: #{rem(80)};
+
+        @include laptop {
+            --itemPaddingX: #{rem(50)};
+        }
+        @include mobile {
+            --columns: 1;
+            .bordered-grid__item {
+                &:not(:last-child) {
+                    border-bottom: var(--border); 
+                }
+            }
+        }
+
+        .bordered-grid__item {
+            @include mobile-above {
+                &:nth-child(odd) {
+                    padding-right: var(--itemPaddingX);
+                    border-right: var(--border);
+                }
+                &:nth-child(even) {
+                    padding-left: var(--itemPaddingX);
+                    @include full-vw-centered-border(bottom, auto, 100%, 50%);
+                }
+            }
+        }
+    }
+    
+    &--3cols {
+        --columns: 3;
+        --itemPaddingX: #{rem(50)};
+
+        column-gap: calc(var(--itemPaddingX) * 2);
+        @include tablet-above {
+            .bordered-grid__item {
+                    &:nth-child(3n-2),
+                    &:nth-child(3n-1) {
+                        position: relative;
+    
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: calc(100% + var(--itemPaddingX));
+                            width: rem(1);
+                            height: 100%;
+                            background-color: var(--color-dark-15);
+                        }
+                    }
+                    
+                    &:nth-child(3n-1) {
+                        @include full-vw-centered-border(bottom);
+                    }
+            }
+        }
+        
+        @include laptop {
+            --itemPaddingX: #{rem(40)};
+        }
+        @include tablet {
+            --columns: 1;
+            .bordered-grid__item {
+                &:not(:last-child) {
+                    border-bottom: var(--border);
+                }
+            } 
+        }
+    }
+
+    &--4-cols {
+        --columns:4;
+        --itemPaddingX: #{rem(50)};
+        column-gap: calc(var(--itemPaddingX) * 2);
+
+        .bordered-grid__item { 
+                position: relative;
+
+                &:not(:nth-child(4n-3)) {
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        right: calc(100% + var(--itemPaddingX));
+                        height: 100%;
+                        width: rem(1);
+                        background-color: var(--color-dark-15);
+                }
+                }
+        }
+
+        @include laptop {
+            --itemPaddingX: #{rem(30)};
+        }
+        @include tablet {
+            --columns:2;
+        }
+        @include mobile {
+            --columns: 1;
+
+            .bordered-grid__item {
+                &:not(:last-child) {
+                    border-bottom: var(--border);
+                }
+            }
+        }
+    }
+    
+    &__item {
+        padding-block: var(--itemPaddingY);
+    }
+}

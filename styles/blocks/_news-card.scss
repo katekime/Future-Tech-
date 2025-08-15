@@ -1,0 +1,136 @@
+@use '../helpers/' as *;
+
+.news-card {
+    display: grid;
+    row-gap: rem(20);
+    height: 100%;
+
+    @include laptop {
+        row-gap: rem(16);
+    }
+
+    &:has(.news-card__summary) {
+        padding-block: rem(80);
+        display: grid;
+        align-items: center;
+        column-gap: rem(60);
+        row-gap: rem(50);
+
+        @include mobile-above {
+            grid-template-columns: auto 1fr;
+            grid-template-areas: 
+            'img body'
+            'img summary'
+            'img controls';
+        }
+        @include laptop {
+            padding-block: rem(60);
+            column-gap: rem(40);
+            row-gap: rem(40);
+        }
+        @include mobile {
+            padding-block: rem(40);
+            row-gap: rem(30);
+        }
+
+        .news-card__image {
+            @include mobile-above {
+                grid-area: img;
+            }
+            // @include laptop {
+            //     height: rem(325);
+            // }
+            height: fluid(427,213);
+        }
+
+        .news-card__body {
+            row-gap: rem(30);
+
+            @include laptop {
+                row-gap: rem(14);
+            }
+            @include mobile {
+                row-gap: rem(6);
+            }
+        }
+        .news-card__title {
+            font-size: rem(32);
+
+            @include laptop {
+                font-size: rem(24);
+            }
+            @include mobile {
+                font-size: rem(20);
+            }
+        }
+        .news-card__desc {
+            font-size: rem(20);
+
+            @include laptop {
+                font-size: rem(18);
+            }
+            @include mobile {
+                font-size: rem(16);
+            }
+        }
+        .news-card__link {
+            padding: rem(18) rem(24);
+
+            @include laptop {
+                padding: rem(14) rem(20);
+            }
+            @include mobile {
+                padding: rem(14) rem(35);
+            }
+        }
+        .news-card__controls {
+            align-items: flex-start;
+
+            @include mobile {
+                align-items: center;
+            }
+        }
+    }
+
+    &__image {
+        width: 100%;
+        border-radius: rem(12);
+        object-fit: cover;
+
+        @include laptop {
+            border-radius: rem(10);
+        }
+    }
+    &__body {
+        display: grid;
+        row-gap: rem(10);
+
+        @include laptop {
+            row-gap: rem(14);
+        }
+    }
+    &__title {
+        font-family: var(--font-family-base);
+        font-weight: 600;
+        line-height: 1.5;
+    }
+    &__desc {
+        font-size: rem(20);
+    }
+    &__controls {
+        display: flex;
+        column-gap: rem(50);
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__link {
+        padding: rem(18) rem(78);
+
+        @include laptop {
+            padding: rem(14) rem(54);
+        }
+        @include mobile {
+            padding: rem(14) rem(30);
+        }
+    }
+}

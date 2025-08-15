@@ -1,0 +1,95 @@
+@use '../helpers/' as *;
+
+.section {
+    &__header {
+        padding-block: rem(120);
+        background-color: var(--color-dark-10);
+
+        &.last {
+            padding: rem(120) 0 rem(100) 0;
+        }
+
+        @include laptop {
+            padding-block: rem(80);
+        }
+        @include mobile {
+            padding-block: rem(40);
+        }
+
+        &-info {
+            display: grid;
+            align-items: start;
+            row-gap: rem(16);
+
+            @include laptop {
+                row-gap: rem(10);
+            }
+        }
+        &-inner {
+            &:has(.section__link) {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                column-gap: rem(250);
+
+                @include laptop {
+                    column-gap: rem(200);
+                }
+
+                @include tablet {
+                    column-gap: rem(10);
+                }
+
+                @include mobile {
+                    grid-template-columns: 1fr;
+                    font-size: rem(28);
+                    row-gap: rem(30);
+                }
+            }
+
+            &:has(.section__desc) {
+                display: flex;
+                align-items: center;
+                column-gap: rem(80);
+            }
+
+            &:has(.section__actions) {
+                display: flex;
+                justify-content: space-between;
+                column-gap: rem(16);
+                align-items: center;
+
+                @include mobile {
+                    display: grid;
+                    row-gap: rem(16);
+                }
+            }
+        }
+
+        &-overlay {
+            display: grid;
+            row-gap: rem(30);
+        }
+    }
+    
+    
+    &__subtitle {
+        justify-self: start;
+    }
+
+    &__body {
+        &.last {
+            background-color: var(--color-dark-10);
+            border-block: none;
+            padding-bottom: rem(120);
+        }
+        border-block: var(--border);
+    }
+
+    &__actions {
+        background-color: var(--color-dark);
+        padding: rem(10);
+        border: var(--border);
+        border-radius: rem(10);
+    }
+}

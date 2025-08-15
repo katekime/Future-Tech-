@@ -1,0 +1,57 @@
+@use '../helpers/' as *;
+
+.soc1als {
+    &--3-cols {
+        max-width: rem(308);
+        .soc1als {
+            &__list {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                row-gap: rem(10); // Если элементов будет больше чем 3,то перекинется строка и нужен row gap
+
+                @include laptop {
+                    column-gap: rem(10);
+                }
+            }
+            &__link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: rem(60);
+                width: 100%;
+                background-color: var(--color-dark-10);
+                padding: rem(18) rem(30);
+                border: var(--border);
+                border-radius: rem(6);
+
+                @include mobile {
+                    padding: rem(14) rem(24);
+                }
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        column-gap: rem(20);
+
+        @include laptop {
+            column-gap: rem(14);
+        }
+    }
+
+    &__item {
+        display: flex;
+    }
+    &__link {
+        --size: #{rem(24)};
+        color: var(--color-light);
+
+        @include square(var(--size));
+
+        @include laptop {
+            --size: #{rem(20)};
+        }
+    }
+
+}   

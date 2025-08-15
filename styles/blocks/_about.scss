@@ -1,0 +1,172 @@
+@use '../helpers/' as *;
+
+.about {
+    background-color: var(--color-dark-10);
+    padding-block: rem(120);
+
+    @include laptop {
+        padding-block: rem(80);
+    }
+    @include mobile {
+        padding-block: rem(40);
+    }
+
+    &__inner {
+        display: grid;
+        row-gap: rem(100);
+
+        @include laptop {
+            row-gap: rem(50);
+        }
+        @include mobile {
+            row-gap: rem(40);
+        }
+    }
+
+    &__header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 
+        'icon info'
+        'icon desc';
+        column-gap: rem(80);
+        row-gap: rem(30);
+        align-items: center;
+
+
+        @include laptop {
+            row-gap: rem(20);
+            column-gap: rem(60);
+        }
+        @include mobile {
+            grid-template-areas: 
+            'icon subtitle'
+            'title title'
+            'desc desc';
+            column-gap: rem(20);
+            row-gap: rem(20);
+        }
+    }
+
+    &__icon {
+        grid-area: icon;
+        width: rem(150);
+
+        @include laptop {
+            width: rem(120);
+        }
+        @include mobile {
+            width: rem(60);
+        }
+    }
+
+    &__info {
+        display: grid;
+        row-gap: rem(16);
+        // grid-area: info;
+
+        @include laptop {
+            row-gap: rem(10);
+        }
+        @include mobile {
+            display: contents;
+        }
+    }
+
+    &__subtitle {
+        justify-self: start;
+
+        @include mobile {
+            grid-area: subtitle;
+        }
+    }
+    &__title {
+        @include mobile {
+            grid-area: title;
+            margin-top: rem(20);
+        }
+    }
+    &__desc {
+        @include mobile {
+            grid-area: desc;
+        }
+    }
+    
+    &__list {
+        background-color: var(--color-dark);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: rem(20);
+        padding: rem(20);
+        border-radius: rem(10);
+        border: var(--border);
+
+        @include laptop {
+            column-gap: rem(10);
+            padding: rem(10);
+        }
+        @include mobile {
+            grid-template-columns: 1fr;
+            row-gap: rem(10);
+
+        }
+    }
+
+    &__card {
+        padding: rem(40);
+        display: grid;
+        row-gap: rem(20);
+
+        @include laptop {
+            padding: rem(30);
+            row-gap: rem(16);
+        }
+        @include mobile {
+            row-gap: rem(10);
+        }
+
+        &-title {
+            --height: #{rem(52)};
+            font-size: rem(22);
+            font-family: var(--font-family-base);
+            font-weight: 600;
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: var(--height);
+
+            --circleSize: #{rem(52)};
+            --MarginLeft: #{rem(20)};
+            padding-right: calc(var(--circleSize) + var(--MarginLeft));
+
+            @include laptop {
+                --circleSize: #{rem(44)};
+                --MarginLeft: #{rem(16)};
+                --height: #{rem(44)};
+            }
+            @include mobile {
+                --circleSize: #{rem(40)};
+                font-size: rem(16);
+                --height: #{rem(40)};
+            }
+            &::after {
+                
+                position: absolute;
+                @include square(var(--circleSize));
+                
+                content: '';
+                right: 0;
+                background: url(../../icons/arrow-top-right__black.svg) center no-repeat var(--color-accent);
+                border-radius: 50%;
+            }
+
+        }
+        &-desc {
+            font-size: rem(18);
+
+            @include mobile {
+                font-size: rem(14);
+            }
+        }
+    }
+}

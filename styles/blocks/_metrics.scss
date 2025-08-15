@@ -1,0 +1,102 @@
+@use '../helpers/' as *;
+
+.metrics {
+    --columns: 3;
+
+    border-top: var(--border);
+
+    &--4-cols {
+        --columns: 4;
+
+        text-align: center;
+
+        @include tablet-above {
+            .metrics__item {
+                padding: rem(80);
+
+                @include laptop {
+                    padding: rem(60) rem(50);
+                }
+            }
+            .metrics__item:nth-child(4n) {
+                padding-right: 0;
+            }
+        }
+        @include tablet {
+            --columns: 2;
+
+            padding-inline: 0;
+
+            .metrics__item {
+                border-bottom: var(--border);
+                &:nth-child(odd) {
+                    padding-left: var(--container-padding-x);
+                    
+                }
+                &:nth-child(even) {
+                    padding-right: var(--container-padding-x);
+                    border-right: none;
+                }
+            }
+        }
+
+        .metrics {
+            &__value {
+                font-family: var(--font-family-base);
+                font-weight: 600;
+                font-size: rem(60);
+
+                @include laptop {
+                    font-size: rem(40);
+                }
+                @include mobile {
+                    font-size: rem(24);
+                }
+            }
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(var(--columns), 1fr);
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column-reverse;
+        row-gap: rem(10);
+        padding: rem(50);
+
+        &:not(:last-child) {
+        border-right: var(--border);
+        }
+        &:first-child {
+            padding-left:0;
+        }
+
+        @include laptop {
+            padding: rem(30) rem(40) rem(30) rem(40);
+            row-gap: rem(2);
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+        @include tablet {
+            row-gap: 0;
+            padding: rem(20);
+        }
+    }
+
+    &__value {
+        font-weight: 600;
+        
+        @include fluid-text(40,24);
+    }
+
+    &__sign {
+        color: var(--color-accent);
+    }
+
+
+
+}

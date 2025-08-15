@@ -1,0 +1,48 @@
+@use '../helpers/' as *;
+
+.icon {
+    display:inline-flex;
+    align-items: center;
+    column-gap: rem(10);
+
+    @include mobile {
+        column-gap: rem(4);
+    }
+
+    &::after {
+        --size: #{rem(24)};
+
+        @include square(var(--size));
+
+        content: '';
+        flex-shrink:0;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        @include laptop {
+            --size: #{rem(20)};
+        }
+    }
+
+    &--yellow-arrow {
+        &::after {
+            background-image: url(../../icons/arrow-top-right__yellow.svg);
+        }
+    }
+    &--yellow-eye {
+        &::after {
+            background-image: url(../../images/resources/icon-yellow-eye.svg);
+        }
+    }
+    &--gray-arrow-down {
+        &::after {
+            background-image: url(../../icons/arrow-bottom-gray.svg);
+        }
+        &.is-expanded {
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

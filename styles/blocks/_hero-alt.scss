@@ -1,0 +1,56 @@
+@use '../helpers/' as *;
+
+.hero-alt {
+    
+    &__header {
+        padding-top: rem(130);
+        padding-bottom: rem(150);
+        border-bottom: var(--border);
+
+        @include laptop {
+            padding-top: rem(80);
+            padding-bottom: rem(100);
+        }
+
+        &-inner {
+            display: grid;
+            align-items: center;
+            row-gap: rem(20);
+            column-gap: rem(80);
+            
+            @include mobile-above {
+                grid-template-columns: auto 1fr;
+            }
+        }
+    }
+
+    &__title {
+        font-size: rem(80);
+        grid-column: -1/1;
+
+        &-hidden-part {
+            @include mobile-above {
+                @include visually-hidden;
+            }
+        }
+
+        @include laptop {
+            font-size: rem(55);
+        }
+        @include mobile {
+            font-size: rem(28);
+        }
+    }
+    &__subtitle {
+        font-size: rem(80);
+
+        @include laptop {
+            font-size: rem(55);
+        }
+    }
+
+    &__body {
+        // border-bottom: var(--border);
+    }
+
+}
