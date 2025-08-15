@@ -499,13 +499,13 @@ a[aria-label]::before, button[aria-label]::before {
   }
 }
 .icon--yellow-arrow::after {
-  background-image: url(.../../icons/arrow-top-right__yellow.svg);
+  background-image: url(../icons/arrow-top-right__yellow.svg);
 }
 .icon--yellow-eye::after {
-  background-image: url(../../images/resources/icon-yellow-eye.svg);
+  background-image: url(../images/resources/icon-yellow-eye.svg);
 }
 .icon--gray-arrow-down::after {
-  background-image: url(../../icons/arrow-bottom-gray.svg);
+  background-image: url(../icons/arrow-bottom-gray.svg);
 }
 .icon--gray-arrow-down.is-expanded::after {
   transform: rotate(180deg);
