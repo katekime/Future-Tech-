@@ -2199,10 +2199,10 @@ a[aria-label]::before, button[aria-label]::before {
   --size: 1.5rem;
   width: var(--size);
   height: var(--size);
-  background: url(../../images/reviews/22.svg) center/contain no-repeat;
+  background: url(../images/reviews/22.svg) center/contain no-repeat;
 }
 .rating-view__star.is-active {
-  background-image: url(../../images/reviews/Shape.svg);
+  background-image: url(../images/reviews/Shape.svg);
 }
 @media (width <= 90.06125rem) {
   .rating-view__star {
@@ -2376,7 +2376,7 @@ a[aria-label]::before, button[aria-label]::before {
   height: var(--circleSize);
   content: "";
   right: 0;
-  background: url(../../icons/arrow-top-right__black.svg) center no-repeat var(--color-accent);
+  background: url(../icons/arrow-top-right__black.svg) center no-repeat var(--color-accent);
   border-radius: 50%;
 }
 .about__card-desc {

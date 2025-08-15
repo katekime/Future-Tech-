@@ -19,10 +19,10 @@
         
         @include square(var(--size));
 
-        background: url(../../images/reviews/22.svg) center/contain no-repeat;
+        background: url(../images/reviews/22.svg) center/contain no-repeat;
         
         &.is-active {
-            background-image: url(../../images/reviews/Shape.svg);
+            background-image: url(../images/reviews/Shape.svg);
         }
         
         
