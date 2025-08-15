@@ -2831,7 +2831,7 @@ a[aria-label]::before, button[aria-label]::before {
 }
 
 .blog-details__banner {
-  --bgImg: url(../../images/blog-details/banner.jpg);
+  --bgImg: url(../images/blog-details/banner.jpg);
   display: flex;
   min-height: 37.375rem;
   padding-block: 4.0625rem;

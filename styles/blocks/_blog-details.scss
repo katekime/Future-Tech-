@@ -2,7 +2,7 @@
 
 .blog-details {
     &__banner {
-        --bgImg: url(../../images/blog-details/banner.jpg);
+        --bgImg: url(../images/blog-details/banner.jpg);
         display: flex;
         min-height: rem(598);
         padding-block: rem(65);
